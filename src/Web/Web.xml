@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Controllers.FirstController">
+            <summary>
+            测试控制器
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.FirstController.#ctor(Infrastructure.Models.ApiDBContent)">
+            <summary>
+            测试
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Web.Controllers.FirstController.Get">
+            <summary>
+            获取测试数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Controllers.FirstController.Post(Infrastructure.Models.CmNumberInfo)">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.FirstController.Put">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="M:Web.Controllers.FirstController.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+    </members>
+</doc>
