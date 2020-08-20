@@ -31,6 +31,7 @@ using EFCore.Models.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Autofac;
 using Infrastructure.AutofacModule;
+using Autofac.Extensions.DependencyInjection;
 
 namespace Web
 {
@@ -47,6 +48,8 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddControllersAsServices();
+
+            services.AddAutofac();
 
             #region 添加Swagger
             services.AddSwaggerGen(options =>
@@ -183,7 +186,22 @@ namespace Web
 
         public void ConfigureContainer(ContainerBuilder containerBuilder)
         {
+            //containerBuilder.RegisterType<AuthenticateService>().As<IAuthenticateService>();
+            //containerBuilder.RegisterType<UserService>().As<IUserService>();
             containerBuilder.RegisterModule<IOCApplicationModule>();
+            //var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+            //var ServicesDllFile = Path.Combine(basePath, "Application.dll");//获取注入项目绝对路径
+
+            //Assembly serviceAss = Assembly.Load("Application");
+
+
+            //var assemblysServices = Assembly.LoadFile(ServicesDllFile);//直接采用加载文件的方法
+            //Type[] c = serviceAss.GetTypes().Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).ToArray();
+            //Type[] c1 = serviceAss.GetTypes().Where(type => type.IsInterface).ToArray();
+            ////containerBuilder.RegisterTypes(c).As(c1);
+            //containerBuilder.RegisterAssemblyTypes(serviceAss).Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).AsImplementedInterfaces()//表示注册的类型，以接口的方式注册不包括IDisposable接口
+            //           .InstancePerLifetimeScope(); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
