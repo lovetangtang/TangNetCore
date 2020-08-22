@@ -12,6 +12,8 @@ using Kogel.Dapper.Extension;
 using System.Data.SqlClient;
 using Kogel.Dapper.Extension.MsSql;
 using Web.Models;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Web.Controllers
 {
@@ -43,8 +45,19 @@ namespace Web.Controllers
         public JsonResult Get()
         {
             this._dbContext = _dbContext.ToRead();//读写分离
-            var list = _dbContext.CmNumberInfo.ToList();
-            return new JsonResult(list);
+            List<CmNumberInfo> cmNumberInfo = new List<CmNumberInfo> ();
+            if (RedisHelper.Get("cmnumber") != null)
+            {
+                cmNumberInfo = System.Text.Json.JsonSerializer.Deserialize<List<CmNumberInfo>>(RedisHelper.Get("cmnumber"));
+                //RedisHelper.Del("cmnumber");
+            }
+            else
+            {
+                cmNumberInfo = _dbContext.CmNumberInfo.ToList();
+                RedisHelper.Set("cmnumber", System.Text.Json.JsonSerializer.SerializeToUtf8Bytes(cmNumberInfo));
+            }
+
+            return new JsonResult(cmNumberInfo);
             //return new string[] { "value1", "value2" };
         }
 

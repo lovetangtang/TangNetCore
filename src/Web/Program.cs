@@ -25,6 +25,7 @@ namespace Web
             }) .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5101");
                 }).UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }

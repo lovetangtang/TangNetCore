@@ -32,6 +32,7 @@ using Swashbuckle.AspNetCore.Filters;
 using Autofac;
 using Infrastructure.AutofacModule;
 using Autofac.Extensions.DependencyInjection;
+using Web.Controllers;
 
 namespace Web
 {
@@ -49,7 +50,6 @@ namespace Web
         {
             services.AddControllers().AddControllersAsServices();
 
-            services.AddAutofac();
 
             #region 添加Swagger
             services.AddSwaggerGen(options =>
@@ -117,6 +117,17 @@ namespace Web
             #endregion
             services.Configure<WebSettings>(Configuration.GetSection("WebSettings"));
             #region 依赖注入自定义Service接口
+
+            //services.Scan(scan =>
+            //{
+            //    Assembly assemblysServices = Assembly.Load("Application");
+            //    scan.FromAssemblies(assemblysServices)
+            //    .AddClasses(classes => classes.Where(t => t.Name.EndsWith("Service", StringComparison.OrdinalIgnoreCase)))
+            //           .AsImplementedInterfaces()
+            //    .AsSelf()
+            //    .WithScopedLifetime();
+            //});
+
             //services.AddDataService();
             //services.AddScoped<IAuthenticateService, AuthenticateService>();
             //services.AddScoped<IUserService, UserService>();
@@ -125,7 +136,13 @@ namespace Web
             #region 注入Redis
             // Redis客户端要定义成单例， 不然在大流量并发收数的时候， 会造成redis client来不及释放。另一方面也确认api控制器不是单例模式，
             string redisConnect = Configuration.GetConnectionString("redis");
-            var csredis = new CSRedisClient(redisConnect);
+            //var csredis = new CSRedisClient(redisConnect);
+            //redis集群
+            var csredis = new CSRedis.CSRedisClient(null,
+              "127.0.0.1:6379,password=123456,defaultDatabase=0",
+              "127.0.0.1:6379,password=123456,defaultDatabase=1",
+              "127.0.0.1:6379,password=123456,defaultDatabase=2",
+              "127.0.0.1:6379,password=123456,defaultDatabase=3");
 
             RedisHelper.Initialization(csredis);
             services.AddSingleton(csredis);
@@ -186,22 +203,8 @@ namespace Web
 
         public void ConfigureContainer(ContainerBuilder containerBuilder)
         {
-            //containerBuilder.RegisterType<AuthenticateService>().As<IAuthenticateService>();
             //containerBuilder.RegisterType<UserService>().As<IUserService>();
             containerBuilder.RegisterModule<IOCApplicationModule>();
-            //var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
-            //var ServicesDllFile = Path.Combine(basePath, "Application.dll");//获取注入项目绝对路径
-
-            //Assembly serviceAss = Assembly.Load("Application");
-
-
-            //var assemblysServices = Assembly.LoadFile(ServicesDllFile);//直接采用加载文件的方法
-            //Type[] c = serviceAss.GetTypes().Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).ToArray();
-            //Type[] c1 = serviceAss.GetTypes().Where(type => type.IsInterface).ToArray();
-            ////containerBuilder.RegisterTypes(c).As(c1);
-            //containerBuilder.RegisterAssemblyTypes(serviceAss).Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).AsImplementedInterfaces()//表示注册的类型，以接口的方式注册不包括IDisposable接口
-            //           .InstancePerLifetimeScope(); 
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

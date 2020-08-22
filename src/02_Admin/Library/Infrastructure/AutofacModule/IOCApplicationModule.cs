@@ -17,7 +17,7 @@ namespace Infrastructure.AutofacModule
             //var assemblysServices = Assembly.LoadFile(ServicesDllFile);//直接采用加载文件的方法
             Assembly assemblysServices = Assembly.Load("Application");
             var c = assemblysServices.GetTypes().Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).ToList();
-            builder.RegisterAssemblyTypes(assemblysServices).Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).AsImplementedInterfaces()//表示注册的类型，以接口的方式注册不包括IDisposable接口
+            builder.RegisterAssemblyTypes(assemblysServices).Where(type => !type.IsInterface && !type.IsSealed && !type.IsAbstract).AsImplementedInterfaces().AsSelf()//表示注册的类型，以接口的方式注册不包括IDisposable接口
                  .InstancePerLifetimeScope();
         }
     }
