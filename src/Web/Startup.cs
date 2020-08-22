@@ -33,6 +33,7 @@ using Autofac;
 using Infrastructure.AutofacModule;
 using Autofac.Extensions.DependencyInjection;
 using Web.Controllers;
+using Serilog;
 
 namespace Web
 {
@@ -215,6 +216,9 @@ namespace Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //使用Serilog日志
+            app.UseSerilogRequestLogging();
 
             // 添加Swagger有关中间件
             app.UseSwagger();

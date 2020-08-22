@@ -52,8 +52,8 @@ namespace Web.Controllers
                 dateTime = DateTime.Now;
                 HttpContext.Session.Set(key, JsonSerializer.SerializeToUtf8Bytes(dateTime));
             }
-
             _logger.LogInformation($"本次连接端口{msg},通过Session获得时间值{dateTime}");
+            _logger.LogDebug($"本次连接端口{msg},通过Session获得时间值{dateTime}");
             return new JsonResult(dateTime);
         }
 
