@@ -1,0 +1,1324 @@
+2020-08-23 14:57:28.556 +08:00 [Debug] Hosting starting
+2020-08-23 14:57:28.697 +08:00 [Information] User profile is available. Using '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-08-23 14:57:29.371 +08:00 [Debug] Reading data from file '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys\key-724f19ba-e77b-48b4-9d0b-0e7213d8f762.xml"'.
+2020-08-23 14:57:29.373 +08:00 [Debug] Reading data from file '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys\key-b0431170-e012-409b-929e-889118ab96a4.xml"'.
+2020-08-23 14:57:29.378 +08:00 [Debug] Found key {724f19ba-e77b-48b4-9d0b-0e7213d8f762}.
+2020-08-23 14:57:29.381 +08:00 [Debug] Found key {b0431170-e012-409b-929e-889118ab96a4}.
+2020-08-23 14:57:29.387 +08:00 [Debug] Considering key {b0431170-e012-409b-929e-889118ab96a4} with expiration date 2020-09-05 15:21:06Z as default key.
+2020-08-23 14:57:29.393 +08:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-08-23 14:57:29.396 +08:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-08-23 14:57:29.397 +08:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-08-23 14:57:29.400 +08:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-08-23 14:57:29.402 +08:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-08-23 14:57:29.405 +08:00 [Debug] Using key {b0431170-e012-409b-929e-889118ab96a4} as the default key.
+2020-08-23 14:57:29.406 +08:00 [Debug] Key ring with default key {b0431170-e012-409b-929e-889118ab96a4} was loaded during application startup.
+2020-08-23 14:57:29.532 +08:00 [Information] Service starting
+2020-08-23 14:57:29.535 +08:00 [Information] Starting the processing server.
+2020-08-23 14:57:29.660 +08:00 [Information] ### CAP started!
+2020-08-23 14:57:31.712 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 14:57:34.802 +08:00 [Debug] Loaded hosting startup assembly "Web"
+2020-08-23 14:57:34.841 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:52768/weatherforecast  
+2020-08-23 14:57:34.845 +08:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-08-23 14:57:34.845 +08:00 [Verbose] All hosts are allowed.
+2020-08-23 14:57:34.876 +08:00 [Debug] The request path "" does not match the path filter
+2020-08-23 14:57:34.908 +08:00 [Information] Default Quartz.NET properties loaded from embedded resource file
+2020-08-23 14:57:34.939 +08:00 [Debug] AuthenticationScheme: "Bearer" was not authenticated.
+2020-08-23 14:57:34.946 +08:00 [Verbose] Performing unprotect operation to key {b0431170-e012-409b-929e-889118ab96a4} with purposes "('C:\Users\Administrator\Source\Repos\lovetangtang\TangNetCore\src\Web', 'SessionMiddleware')".
+2020-08-23 14:57:34.948 +08:00 [Debug] The request path "/weatherforecast" does not match a supported file type
+2020-08-23 14:57:34.964 +08:00 [Information] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-08-23 14:57:34.966 +08:00 [Information] Quartz Scheduler v."3.0.7.0" created.
+2020-08-23 14:57:34.966 +08:00 [Information] RAMJobStore initialized.
+2020-08-23 14:57:34.969 +08:00 [Information] Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-08-23 14:57:34.969 +08:00 [Information] Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-08-23 14:57:34.969 +08:00 [Information] Quartz scheduler version: 3.0.7.0
+2020-08-23 14:57:34.970 +08:00 [Information] JobFactory set to: Quartzs.IOCJobFactory
+2020-08-23 14:57:34.976 +08:00 [Information] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-08-23 14:57:34.982 +08:00 [Debug] 1 candidate(s) found for the request path '"/weatherforecast"'
+2020-08-23 14:57:34.985 +08:00 [Debug] Endpoint '"Web.Controllers.WeatherForecastController.Get (Web)"' with route pattern '"WeatherForecast"' is valid for the request path '"/weatherforecast"'
+2020-08-23 14:57:34.985 +08:00 [Debug] Request matched endpoint '"Web.Controllers.WeatherForecastController.Get (Web)"'
+2020-08-23 14:57:34.990 +08:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-08-23 14:57:34.990 +08:00 [Information] Hosting environment: "Development"
+2020-08-23 14:57:34.990 +08:00 [Information] Content root path: "C:\Users\Administrator\Source\Repos\lovetangtang\TangNetCore\src\Web"
+2020-08-23 14:57:34.990 +08:00 [Debug] Hosting started
+2020-08-23 14:57:34.992 +08:00 [Information] Authorization failed.
+2020-08-23 14:57:34.996 +08:00 [Information] AuthenticationScheme: "Bearer" was challenged.
+2020-08-23 14:57:35.018 +08:00 [Information] 2020-08-23 14:57:35：开始执行同步第三方数据
+2020-08-23 14:57:35.021 +08:00 [Information] HTTP "GET" "/weatherforecast" responded 401 in 169.4288 ms
+2020-08-23 14:57:35.042 +08:00 [Information] Request finished in 202.7616ms 401 
+2020-08-23 14:57:37.048 +08:00 [Information] 2020-08-23 14:57:37：开始执行同步第三方数据
+2020-08-23 14:57:38.999 +08:00 [Information] 2020-08-23 14:57:38：开始执行同步第三方数据
+2020-08-23 14:57:40.978 +08:00 [Information] 2020-08-23 14:57:40：开始执行同步第三方数据
+2020-08-23 14:57:42.979 +08:00 [Information] 2020-08-23 14:57:42：开始执行同步第三方数据
+2020-08-23 14:57:44.979 +08:00 [Information] 2020-08-23 14:57:44：开始执行同步第三方数据
+2020-08-23 14:57:46.982 +08:00 [Information] 2020-08-23 14:57:46：开始执行同步第三方数据
+2020-08-23 14:57:47.859 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:52768/api/Redis?key=3  
+2020-08-23 14:57:47.860 +08:00 [Verbose] All hosts are allowed.
+2020-08-23 14:57:47.861 +08:00 [Debug] The request path "" does not match the path filter
+2020-08-23 14:57:47.861 +08:00 [Debug] AuthenticationScheme: "Bearer" was not authenticated.
+2020-08-23 14:57:47.861 +08:00 [Verbose] Performing unprotect operation to key {b0431170-e012-409b-929e-889118ab96a4} with purposes "('C:\Users\Administrator\Source\Repos\lovetangtang\TangNetCore\src\Web', 'SessionMiddleware')".
+2020-08-23 14:57:47.862 +08:00 [Debug] The request path "/api/Redis" does not match a supported file type
+2020-08-23 14:57:47.864 +08:00 [Debug] 1 candidate(s) found for the request path '"/api/Redis"'
+2020-08-23 14:57:47.864 +08:00 [Debug] Endpoint '"Web.Controllers.RedisController.GetSessionData (Web)"' with route pattern '"api/Redis"' is valid for the request path '"/api/Redis"'
+2020-08-23 14:57:47.864 +08:00 [Debug] Request matched endpoint '"Web.Controllers.RedisController.GetSessionData (Web)"'
+2020-08-23 14:57:47.865 +08:00 [Information] Executing endpoint '"Web.Controllers.RedisController.GetSessionData (Web)"'
+2020-08-23 14:57:47.876 +08:00 [Debug] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider", "Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-08-23 14:57:47.905 +08:00 [Information] Route matched with "{action = \"GetSessionData\", controller = \"Redis\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult GetSessionData(System.String)" on controller "Web.Controllers.RedisController" ("Web").
+2020-08-23 14:57:47.906 +08:00 [Debug] Execution plan of "authorization" filters (in the following order): ["None"]
+2020-08-23 14:57:47.906 +08:00 [Debug] Execution plan of "resource" filters (in the following order): ["None"]
+2020-08-23 14:57:47.907 +08:00 [Debug] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)", "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-08-23 14:57:47.907 +08:00 [Debug] Execution plan of "exception" filters (in the following order): ["None"]
+2020-08-23 14:57:47.907 +08:00 [Debug] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-08-23 14:57:47.908 +08:00 [Debug] Executing controller factory for controller "Web.Controllers.RedisController" ("Web")
+2020-08-23 14:57:47.909 +08:00 [Debug] Executed controller factory for controller "Web.Controllers.RedisController" ("Web")
+2020-08-23 14:57:47.918 +08:00 [Debug] Attempting to bind parameter '"key"' of type '"System.String"' ...
+2020-08-23 14:57:47.921 +08:00 [Debug] Attempting to bind parameter '"key"' of type '"System.String"' using the name '"key"' in request data ...
+2020-08-23 14:57:47.922 +08:00 [Debug] Done attempting to bind parameter '"key"' of type '"System.String"'.
+2020-08-23 14:57:47.922 +08:00 [Debug] Done attempting to bind parameter '"key"' of type '"System.String"'.
+2020-08-23 14:57:47.922 +08:00 [Debug] Attempting to validate the bound parameter '"key"' of type '"System.String"' ...
+2020-08-23 14:57:47.924 +08:00 [Debug] Done attempting to validate the bound parameter '"key"' of type '"System.String"'.
+2020-08-23 14:57:47.926 +08:00 [Verbose] "Action Filter": Before executing "OnActionExecuting" on filter "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter".
+2020-08-23 14:57:47.926 +08:00 [Verbose] "Action Filter": After executing "OnActionExecuting" on filter "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter".
+2020-08-23 14:57:47.926 +08:00 [Verbose] "Action Filter": Before executing "OnActionExecuting" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter".
+2020-08-23 14:57:47.926 +08:00 [Verbose] "Action Filter": After executing "OnActionExecuting" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter".
+2020-08-23 14:57:47.931 +08:00 [Information] Executing action method "Web.Controllers.RedisController.GetSessionData (Web)" - Validation state: Valid
+2020-08-23 14:57:47.932 +08:00 [Verbose] Executing action method "Web.Controllers.RedisController.GetSessionData (Web)" with arguments (["3"])
+2020-08-23 14:57:47.945 +08:00 [Debug] Session loaded; Key:"e93f1711-5d53-6399-58e2-9e83e61e7802", Id:"52e9a9b4-21f8-603c-0d64-f1421ba4683f", Count:1
+2020-08-23 14:57:47.951 +08:00 [Information] 本次连接端口52768,通过Session获得时间值2020-08-23 14:49:01
+2020-08-23 14:57:47.956 +08:00 [Information] Executed action method "Web.Controllers.RedisController.GetSessionData (Web)", returned result "Microsoft.AspNetCore.Mvc.JsonResult" in 19.9313ms.
+2020-08-23 14:57:47.956 +08:00 [Verbose] "Action Filter": Before executing "OnActionExecuted" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter".
+2020-08-23 14:57:47.956 +08:00 [Verbose] "Action Filter": After executing "OnActionExecuted" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter".
+2020-08-23 14:57:47.956 +08:00 [Verbose] "Action Filter": Before executing "OnActionExecuted" on filter "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter".
+2020-08-23 14:57:47.956 +08:00 [Verbose] "Action Filter": After executing "OnActionExecuted" on filter "Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter".
+2020-08-23 14:57:47.956 +08:00 [Verbose] "Result Filter": Before executing "OnResultExecuting" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter".
+2020-08-23 14:57:47.957 +08:00 [Verbose] "Result Filter": After executing "OnResultExecuting" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter".
+2020-08-23 14:57:47.957 +08:00 [Verbose] Before executing action result "Microsoft.AspNetCore.Mvc.JsonResult".
+2020-08-23 14:57:47.960 +08:00 [Information] Executing JsonResult, writing value of type '"System.DateTime"'.
+2020-08-23 14:57:47.966 +08:00 [Verbose] After executing action result "Microsoft.AspNetCore.Mvc.JsonResult".
+2020-08-23 14:57:47.966 +08:00 [Verbose] "Result Filter": Before executing "OnResultExecuted" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter".
+2020-08-23 14:57:47.966 +08:00 [Verbose] "Result Filter": After executing "OnResultExecuted" on filter "Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter".
+2020-08-23 14:57:47.970 +08:00 [Information] Executed action "Web.Controllers.RedisController.GetSessionData (Web)" in 58.705ms
+2020-08-23 14:57:47.970 +08:00 [Information] Executed endpoint '"Web.Controllers.RedisController.GetSessionData (Web)"'
+2020-08-23 14:57:47.971 +08:00 [Information] HTTP "GET" "/api/Redis?key=3" responded 200 in 110.8599 ms
+2020-08-23 14:57:47.971 +08:00 [Information] Request finished in 112.0725ms 200 application/json; charset=utf-8
+2020-08-23 14:57:48.978 +08:00 [Information] 2020-08-23 14:57:48：开始执行同步第三方数据
+2020-08-23 14:57:50.979 +08:00 [Information] 2020-08-23 14:57:50：开始执行同步第三方数据
+2020-08-23 14:57:52.998 +08:00 [Information] 2020-08-23 14:57:52：开始执行同步第三方数据
+2020-08-23 14:57:54.997 +08:00 [Information] 2020-08-23 14:57:54：开始执行同步第三方数据
+2020-08-23 14:57:56.978 +08:00 [Information] 2020-08-23 14:57:56：开始执行同步第三方数据
+2020-08-23 14:57:58.983 +08:00 [Information] 2020-08-23 14:57:58：开始执行同步第三方数据
+2020-08-23 14:57:59.554 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 14:58:00.979 +08:00 [Information] 2020-08-23 14:58:00：开始执行同步第三方数据
+2020-08-23 14:58:01.570 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 14:58:02.982 +08:00 [Information] 2020-08-23 14:58:02：开始执行同步第三方数据
+2020-08-23 14:58:04.983 +08:00 [Information] 2020-08-23 14:58:04：开始执行同步第三方数据
+2020-08-23 14:58:06.985 +08:00 [Information] 2020-08-23 14:58:06：开始执行同步第三方数据
+2020-08-23 14:58:08.979 +08:00 [Information] 2020-08-23 14:58:08：开始执行同步第三方数据
+2020-08-23 14:58:10.979 +08:00 [Information] 2020-08-23 14:58:10：开始执行同步第三方数据
+2020-08-23 14:58:12.979 +08:00 [Information] 2020-08-23 14:58:12：开始执行同步第三方数据
+2020-08-23 14:58:14.984 +08:00 [Information] 2020-08-23 14:58:14：开始执行同步第三方数据
+2020-08-23 14:58:16.978 +08:00 [Information] 2020-08-23 14:58:16：开始执行同步第三方数据
+2020-08-23 14:58:18.978 +08:00 [Information] 2020-08-23 14:58:18：开始执行同步第三方数据
+2020-08-23 14:58:20.978 +08:00 [Information] 2020-08-23 14:58:20：开始执行同步第三方数据
+2020-08-23 14:58:22.978 +08:00 [Information] 2020-08-23 14:58:22：开始执行同步第三方数据
+2020-08-23 14:58:24.978 +08:00 [Information] 2020-08-23 14:58:24：开始执行同步第三方数据
+2020-08-23 14:58:26.978 +08:00 [Information] 2020-08-23 14:58:26：开始执行同步第三方数据
+2020-08-23 14:58:28.980 +08:00 [Information] 2020-08-23 14:58:28：开始执行同步第三方数据
+2020-08-23 14:58:29.566 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 14:58:30.977 +08:00 [Information] 2020-08-23 14:58:30：开始执行同步第三方数据
+2020-08-23 14:58:31.587 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 14:58:32.978 +08:00 [Information] 2020-08-23 14:58:32：开始执行同步第三方数据
+2020-08-23 14:58:34.979 +08:00 [Information] 2020-08-23 14:58:34：开始执行同步第三方数据
+2020-08-23 14:58:36.977 +08:00 [Information] 2020-08-23 14:58:36：开始执行同步第三方数据
+2020-08-23 14:58:38.978 +08:00 [Information] 2020-08-23 14:58:38：开始执行同步第三方数据
+2020-08-23 14:58:40.989 +08:00 [Information] 2020-08-23 14:58:40：开始执行同步第三方数据
+2020-08-23 14:58:42.977 +08:00 [Information] 2020-08-23 14:58:42：开始执行同步第三方数据
+2020-08-23 14:58:44.978 +08:00 [Information] 2020-08-23 14:58:44：开始执行同步第三方数据
+2020-08-23 14:58:46.977 +08:00 [Information] 2020-08-23 14:58:46：开始执行同步第三方数据
+2020-08-23 14:58:48.979 +08:00 [Information] 2020-08-23 14:58:48：开始执行同步第三方数据
+2020-08-23 14:58:50.991 +08:00 [Information] 2020-08-23 14:58:50：开始执行同步第三方数据
+2020-08-23 14:58:52.978 +08:00 [Information] 2020-08-23 14:58:52：开始执行同步第三方数据
+2020-08-23 14:58:54.978 +08:00 [Information] 2020-08-23 14:58:54：开始执行同步第三方数据
+2020-08-23 14:58:56.977 +08:00 [Information] 2020-08-23 14:58:56：开始执行同步第三方数据
+2020-08-23 14:58:58.978 +08:00 [Information] 2020-08-23 14:58:58：开始执行同步第三方数据
+2020-08-23 14:58:59.566 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 14:59:00.986 +08:00 [Information] 2020-08-23 14:59:00：开始执行同步第三方数据
+2020-08-23 14:59:01.583 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 14:59:02.979 +08:00 [Information] 2020-08-23 14:59:02：开始执行同步第三方数据
+2020-08-23 14:59:04.978 +08:00 [Information] 2020-08-23 14:59:04：开始执行同步第三方数据
+2020-08-23 14:59:06.977 +08:00 [Information] 2020-08-23 14:59:06：开始执行同步第三方数据
+2020-08-23 14:59:08.977 +08:00 [Information] 2020-08-23 14:59:08：开始执行同步第三方数据
+2020-08-23 14:59:10.978 +08:00 [Information] 2020-08-23 14:59:10：开始执行同步第三方数据
+2020-08-23 14:59:12.977 +08:00 [Information] 2020-08-23 14:59:12：开始执行同步第三方数据
+2020-08-23 14:59:14.995 +08:00 [Information] 2020-08-23 14:59:14：开始执行同步第三方数据
+2020-08-23 14:59:16.988 +08:00 [Information] 2020-08-23 14:59:16：开始执行同步第三方数据
+2020-08-23 14:59:19.018 +08:00 [Information] 2020-08-23 14:59:19：开始执行同步第三方数据
+2020-08-23 14:59:20.977 +08:00 [Information] 2020-08-23 14:59:20：开始执行同步第三方数据
+2020-08-23 14:59:22.977 +08:00 [Information] 2020-08-23 14:59:22：开始执行同步第三方数据
+2020-08-23 14:59:24.977 +08:00 [Information] 2020-08-23 14:59:24：开始执行同步第三方数据
+2020-08-23 14:59:26.977 +08:00 [Information] 2020-08-23 14:59:26：开始执行同步第三方数据
+2020-08-23 14:59:28.978 +08:00 [Information] 2020-08-23 14:59:28：开始执行同步第三方数据
+2020-08-23 14:59:29.568 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 14:59:30.977 +08:00 [Information] 2020-08-23 14:59:30：开始执行同步第三方数据
+2020-08-23 14:59:31.597 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 14:59:32.978 +08:00 [Information] 2020-08-23 14:59:32：开始执行同步第三方数据
+2020-08-23 14:59:34.977 +08:00 [Information] 2020-08-23 14:59:34：开始执行同步第三方数据
+2020-08-23 14:59:36.979 +08:00 [Information] 2020-08-23 14:59:36：开始执行同步第三方数据
+2020-08-23 14:59:38.982 +08:00 [Information] 2020-08-23 14:59:38：开始执行同步第三方数据
+2020-08-23 14:59:40.978 +08:00 [Information] 2020-08-23 14:59:40：开始执行同步第三方数据
+2020-08-23 14:59:42.977 +08:00 [Information] 2020-08-23 14:59:42：开始执行同步第三方数据
+2020-08-23 14:59:44.977 +08:00 [Information] 2020-08-23 14:59:44：开始执行同步第三方数据
+2020-08-23 14:59:46.978 +08:00 [Information] 2020-08-23 14:59:46：开始执行同步第三方数据
+2020-08-23 14:59:48.978 +08:00 [Information] 2020-08-23 14:59:48：开始执行同步第三方数据
+2020-08-23 14:59:50.977 +08:00 [Information] 2020-08-23 14:59:50：开始执行同步第三方数据
+2020-08-23 14:59:52.977 +08:00 [Information] 2020-08-23 14:59:52：开始执行同步第三方数据
+2020-08-23 14:59:54.977 +08:00 [Information] 2020-08-23 14:59:54：开始执行同步第三方数据
+2020-08-23 14:59:56.977 +08:00 [Information] 2020-08-23 14:59:56：开始执行同步第三方数据
+2020-08-23 14:59:58.978 +08:00 [Information] 2020-08-23 14:59:58：开始执行同步第三方数据
+2020-08-23 14:59:59.568 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:00:00.978 +08:00 [Information] 2020-08-23 15:00:00：开始执行同步第三方数据
+2020-08-23 15:00:01.582 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:00:02.977 +08:00 [Information] 2020-08-23 15:00:02：开始执行同步第三方数据
+2020-08-23 15:00:04.977 +08:00 [Information] 2020-08-23 15:00:04：开始执行同步第三方数据
+2020-08-23 15:00:06.977 +08:00 [Information] 2020-08-23 15:00:06：开始执行同步第三方数据
+2020-08-23 15:00:08.978 +08:00 [Information] 2020-08-23 15:00:08：开始执行同步第三方数据
+2020-08-23 15:00:10.977 +08:00 [Information] 2020-08-23 15:00:10：开始执行同步第三方数据
+2020-08-23 15:00:12.977 +08:00 [Information] 2020-08-23 15:00:12：开始执行同步第三方数据
+2020-08-23 15:00:14.977 +08:00 [Information] 2020-08-23 15:00:14：开始执行同步第三方数据
+2020-08-23 15:00:16.999 +08:00 [Information] 2020-08-23 15:00:16：开始执行同步第三方数据
+2020-08-23 15:00:18.978 +08:00 [Information] 2020-08-23 15:00:18：开始执行同步第三方数据
+2020-08-23 15:00:20.977 +08:00 [Information] 2020-08-23 15:00:20：开始执行同步第三方数据
+2020-08-23 15:00:22.977 +08:00 [Information] 2020-08-23 15:00:22：开始执行同步第三方数据
+2020-08-23 15:00:24.978 +08:00 [Information] 2020-08-23 15:00:24：开始执行同步第三方数据
+2020-08-23 15:00:26.977 +08:00 [Information] 2020-08-23 15:00:26：开始执行同步第三方数据
+2020-08-23 15:00:28.977 +08:00 [Information] 2020-08-23 15:00:28：开始执行同步第三方数据
+2020-08-23 15:00:29.575 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:00:30.979 +08:00 [Information] 2020-08-23 15:00:30：开始执行同步第三方数据
+2020-08-23 15:00:31.596 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:00:32.978 +08:00 [Information] 2020-08-23 15:00:32：开始执行同步第三方数据
+2020-08-23 15:00:34.977 +08:00 [Information] 2020-08-23 15:00:34：开始执行同步第三方数据
+2020-08-23 15:00:36.977 +08:00 [Information] 2020-08-23 15:00:36：开始执行同步第三方数据
+2020-08-23 15:00:38.977 +08:00 [Information] 2020-08-23 15:00:38：开始执行同步第三方数据
+2020-08-23 15:00:40.977 +08:00 [Information] 2020-08-23 15:00:40：开始执行同步第三方数据
+2020-08-23 15:00:42.978 +08:00 [Information] 2020-08-23 15:00:42：开始执行同步第三方数据
+2020-08-23 15:00:44.977 +08:00 [Information] 2020-08-23 15:00:44：开始执行同步第三方数据
+2020-08-23 15:00:46.977 +08:00 [Information] 2020-08-23 15:00:46：开始执行同步第三方数据
+2020-08-23 15:00:48.977 +08:00 [Information] 2020-08-23 15:00:48：开始执行同步第三方数据
+2020-08-23 15:00:50.988 +08:00 [Information] 2020-08-23 15:00:50：开始执行同步第三方数据
+2020-08-23 15:00:52.978 +08:00 [Information] 2020-08-23 15:00:52：开始执行同步第三方数据
+2020-08-23 15:00:54.979 +08:00 [Information] 2020-08-23 15:00:54：开始执行同步第三方数据
+2020-08-23 15:00:56.977 +08:00 [Information] 2020-08-23 15:00:56：开始执行同步第三方数据
+2020-08-23 15:00:58.978 +08:00 [Information] 2020-08-23 15:00:58：开始执行同步第三方数据
+2020-08-23 15:00:59.577 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:01:00.986 +08:00 [Information] 2020-08-23 15:01:00：开始执行同步第三方数据
+2020-08-23 15:01:01.636 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:01:02.978 +08:00 [Information] 2020-08-23 15:01:02：开始执行同步第三方数据
+2020-08-23 15:01:04.978 +08:00 [Information] 2020-08-23 15:01:04：开始执行同步第三方数据
+2020-08-23 15:01:06.978 +08:00 [Information] 2020-08-23 15:01:06：开始执行同步第三方数据
+2020-08-23 15:01:08.977 +08:00 [Information] 2020-08-23 15:01:08：开始执行同步第三方数据
+2020-08-23 15:01:10.978 +08:00 [Information] 2020-08-23 15:01:10：开始执行同步第三方数据
+2020-08-23 15:01:12.977 +08:00 [Information] 2020-08-23 15:01:12：开始执行同步第三方数据
+2020-08-23 15:01:14.977 +08:00 [Information] 2020-08-23 15:01:14：开始执行同步第三方数据
+2020-08-23 15:01:16.977 +08:00 [Information] 2020-08-23 15:01:16：开始执行同步第三方数据
+2020-08-23 15:01:18.978 +08:00 [Information] 2020-08-23 15:01:18：开始执行同步第三方数据
+2020-08-23 15:01:20.977 +08:00 [Information] 2020-08-23 15:01:20：开始执行同步第三方数据
+2020-08-23 15:01:22.977 +08:00 [Information] 2020-08-23 15:01:22：开始执行同步第三方数据
+2020-08-23 15:01:24.977 +08:00 [Information] 2020-08-23 15:01:24：开始执行同步第三方数据
+2020-08-23 15:01:26.977 +08:00 [Information] 2020-08-23 15:01:26：开始执行同步第三方数据
+2020-08-23 15:01:28.978 +08:00 [Information] 2020-08-23 15:01:28：开始执行同步第三方数据
+2020-08-23 15:01:29.588 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:01:30.978 +08:00 [Information] 2020-08-23 15:01:30：开始执行同步第三方数据
+2020-08-23 15:01:31.607 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:01:32.977 +08:00 [Information] 2020-08-23 15:01:32：开始执行同步第三方数据
+2020-08-23 15:01:34.977 +08:00 [Information] 2020-08-23 15:01:34：开始执行同步第三方数据
+2020-08-23 15:01:36.977 +08:00 [Information] 2020-08-23 15:01:36：开始执行同步第三方数据
+2020-08-23 15:01:38.978 +08:00 [Information] 2020-08-23 15:01:38：开始执行同步第三方数据
+2020-08-23 15:01:40.977 +08:00 [Information] 2020-08-23 15:01:40：开始执行同步第三方数据
+2020-08-23 15:01:42.977 +08:00 [Information] 2020-08-23 15:01:42：开始执行同步第三方数据
+2020-08-23 15:01:44.977 +08:00 [Information] 2020-08-23 15:01:44：开始执行同步第三方数据
+2020-08-23 15:01:46.977 +08:00 [Information] 2020-08-23 15:01:46：开始执行同步第三方数据
+2020-08-23 15:01:48.977 +08:00 [Information] 2020-08-23 15:01:48：开始执行同步第三方数据
+2020-08-23 15:01:50.982 +08:00 [Information] 2020-08-23 15:01:50：开始执行同步第三方数据
+2020-08-23 15:01:52.977 +08:00 [Information] 2020-08-23 15:01:52：开始执行同步第三方数据
+2020-08-23 15:01:54.998 +08:00 [Information] 2020-08-23 15:01:54：开始执行同步第三方数据
+2020-08-23 15:01:56.977 +08:00 [Information] 2020-08-23 15:01:56：开始执行同步第三方数据
+2020-08-23 15:01:58.977 +08:00 [Information] 2020-08-23 15:01:58：开始执行同步第三方数据
+2020-08-23 15:01:59.597 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:02:01.168 +08:00 [Information] 2020-08-23 15:02:01：开始执行同步第三方数据
+2020-08-23 15:02:01.785 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:02:02.978 +08:00 [Information] 2020-08-23 15:02:02：开始执行同步第三方数据
+2020-08-23 15:02:04.978 +08:00 [Information] 2020-08-23 15:02:04：开始执行同步第三方数据
+2020-08-23 15:02:06.978 +08:00 [Information] 2020-08-23 15:02:06：开始执行同步第三方数据
+2020-08-23 15:02:08.978 +08:00 [Information] 2020-08-23 15:02:08：开始执行同步第三方数据
+2020-08-23 15:02:10.977 +08:00 [Information] 2020-08-23 15:02:10：开始执行同步第三方数据
+2020-08-23 15:02:12.977 +08:00 [Information] 2020-08-23 15:02:12：开始执行同步第三方数据
+2020-08-23 15:02:14.977 +08:00 [Information] 2020-08-23 15:02:14：开始执行同步第三方数据
+2020-08-23 15:02:16.977 +08:00 [Information] 2020-08-23 15:02:16：开始执行同步第三方数据
+2020-08-23 15:02:18.979 +08:00 [Information] 2020-08-23 15:02:18：开始执行同步第三方数据
+2020-08-23 15:02:20.977 +08:00 [Information] 2020-08-23 15:02:20：开始执行同步第三方数据
+2020-08-23 15:02:22.979 +08:00 [Information] 2020-08-23 15:02:22：开始执行同步第三方数据
+2020-08-23 15:02:24.977 +08:00 [Information] 2020-08-23 15:02:24：开始执行同步第三方数据
+2020-08-23 15:02:26.977 +08:00 [Information] 2020-08-23 15:02:26：开始执行同步第三方数据
+2020-08-23 15:02:28.977 +08:00 [Information] 2020-08-23 15:02:28：开始执行同步第三方数据
+2020-08-23 15:02:29.598 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:02:30.979 +08:00 [Information] 2020-08-23 15:02:30：开始执行同步第三方数据
+2020-08-23 15:02:31.615 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:02:32.978 +08:00 [Information] 2020-08-23 15:02:32：开始执行同步第三方数据
+2020-08-23 15:02:34.977 +08:00 [Information] 2020-08-23 15:02:34：开始执行同步第三方数据
+2020-08-23 15:02:36.978 +08:00 [Information] 2020-08-23 15:02:36：开始执行同步第三方数据
+2020-08-23 15:02:38.978 +08:00 [Information] 2020-08-23 15:02:38：开始执行同步第三方数据
+2020-08-23 15:02:40.977 +08:00 [Information] 2020-08-23 15:02:40：开始执行同步第三方数据
+2020-08-23 15:02:42.977 +08:00 [Information] 2020-08-23 15:02:42：开始执行同步第三方数据
+2020-08-23 15:02:45.008 +08:00 [Information] 2020-08-23 15:02:45：开始执行同步第三方数据
+2020-08-23 15:02:46.977 +08:00 [Information] 2020-08-23 15:02:46：开始执行同步第三方数据
+2020-08-23 15:02:48.977 +08:00 [Information] 2020-08-23 15:02:48：开始执行同步第三方数据
+2020-08-23 15:02:50.979 +08:00 [Information] 2020-08-23 15:02:50：开始执行同步第三方数据
+2020-08-23 15:02:52.978 +08:00 [Information] 2020-08-23 15:02:52：开始执行同步第三方数据
+2020-08-23 15:02:54.977 +08:00 [Information] 2020-08-23 15:02:54：开始执行同步第三方数据
+2020-08-23 15:02:56.977 +08:00 [Information] 2020-08-23 15:02:56：开始执行同步第三方数据
+2020-08-23 15:02:58.977 +08:00 [Information] 2020-08-23 15:02:58：开始执行同步第三方数据
+2020-08-23 15:02:59.605 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:03:00.978 +08:00 [Information] 2020-08-23 15:03:00：开始执行同步第三方数据
+2020-08-23 15:03:01.876 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:03:02.977 +08:00 [Information] 2020-08-23 15:03:02：开始执行同步第三方数据
+2020-08-23 15:03:04.977 +08:00 [Information] 2020-08-23 15:03:04：开始执行同步第三方数据
+2020-08-23 15:03:06.978 +08:00 [Information] 2020-08-23 15:03:06：开始执行同步第三方数据
+2020-08-23 15:03:08.978 +08:00 [Information] 2020-08-23 15:03:08：开始执行同步第三方数据
+2020-08-23 15:03:10.977 +08:00 [Information] 2020-08-23 15:03:10：开始执行同步第三方数据
+2020-08-23 15:03:12.977 +08:00 [Information] 2020-08-23 15:03:12：开始执行同步第三方数据
+2020-08-23 15:03:14.977 +08:00 [Information] 2020-08-23 15:03:14：开始执行同步第三方数据
+2020-08-23 15:03:16.977 +08:00 [Information] 2020-08-23 15:03:16：开始执行同步第三方数据
+2020-08-23 15:03:18.977 +08:00 [Information] 2020-08-23 15:03:18：开始执行同步第三方数据
+2020-08-23 15:03:20.978 +08:00 [Information] 2020-08-23 15:03:20：开始执行同步第三方数据
+2020-08-23 15:03:22.980 +08:00 [Information] 2020-08-23 15:03:22：开始执行同步第三方数据
+2020-08-23 15:03:24.977 +08:00 [Information] 2020-08-23 15:03:24：开始执行同步第三方数据
+2020-08-23 15:03:26.978 +08:00 [Information] 2020-08-23 15:03:26：开始执行同步第三方数据
+2020-08-23 15:03:28.977 +08:00 [Information] 2020-08-23 15:03:28：开始执行同步第三方数据
+2020-08-23 15:03:29.613 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:03:30.979 +08:00 [Information] 2020-08-23 15:03:30：开始执行同步第三方数据
+2020-08-23 15:03:31.624 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:03:32.977 +08:00 [Information] 2020-08-23 15:03:32：开始执行同步第三方数据
+2020-08-23 15:03:34.977 +08:00 [Information] 2020-08-23 15:03:34：开始执行同步第三方数据
+2020-08-23 15:03:36.977 +08:00 [Information] 2020-08-23 15:03:36：开始执行同步第三方数据
+2020-08-23 15:03:38.977 +08:00 [Information] 2020-08-23 15:03:38：开始执行同步第三方数据
+2020-08-23 15:03:40.990 +08:00 [Information] 2020-08-23 15:03:40：开始执行同步第三方数据
+2020-08-23 15:03:42.978 +08:00 [Information] 2020-08-23 15:03:42：开始执行同步第三方数据
+2020-08-23 15:03:44.981 +08:00 [Information] 2020-08-23 15:03:44：开始执行同步第三方数据
+2020-08-23 15:03:46.978 +08:00 [Information] 2020-08-23 15:03:46：开始执行同步第三方数据
+2020-08-23 15:03:48.977 +08:00 [Information] 2020-08-23 15:03:48：开始执行同步第三方数据
+2020-08-23 15:03:50.977 +08:00 [Information] 2020-08-23 15:03:50：开始执行同步第三方数据
+2020-08-23 15:03:52.977 +08:00 [Information] 2020-08-23 15:03:52：开始执行同步第三方数据
+2020-08-23 15:03:54.977 +08:00 [Information] 2020-08-23 15:03:54：开始执行同步第三方数据
+2020-08-23 15:03:56.978 +08:00 [Information] 2020-08-23 15:03:56：开始执行同步第三方数据
+2020-08-23 15:03:58.977 +08:00 [Information] 2020-08-23 15:03:58：开始执行同步第三方数据
+2020-08-23 15:03:59.615 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:04:00.978 +08:00 [Information] 2020-08-23 15:04:00：开始执行同步第三方数据
+2020-08-23 15:04:01.633 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:04:02.978 +08:00 [Information] 2020-08-23 15:04:02：开始执行同步第三方数据
+2020-08-23 15:04:04.980 +08:00 [Information] 2020-08-23 15:04:04：开始执行同步第三方数据
+2020-08-23 15:04:06.978 +08:00 [Information] 2020-08-23 15:04:06：开始执行同步第三方数据
+2020-08-23 15:04:09.006 +08:00 [Information] 2020-08-23 15:04:09：开始执行同步第三方数据
+2020-08-23 15:04:10.977 +08:00 [Information] 2020-08-23 15:04:10：开始执行同步第三方数据
+2020-08-23 15:04:12.977 +08:00 [Information] 2020-08-23 15:04:12：开始执行同步第三方数据
+2020-08-23 15:04:14.978 +08:00 [Information] 2020-08-23 15:04:14：开始执行同步第三方数据
+2020-08-23 15:04:16.978 +08:00 [Information] 2020-08-23 15:04:16：开始执行同步第三方数据
+2020-08-23 15:04:18.977 +08:00 [Information] 2020-08-23 15:04:18：开始执行同步第三方数据
+2020-08-23 15:04:20.977 +08:00 [Information] 2020-08-23 15:04:20：开始执行同步第三方数据
+2020-08-23 15:04:22.979 +08:00 [Information] 2020-08-23 15:04:22：开始执行同步第三方数据
+2020-08-23 15:04:24.993 +08:00 [Information] 2020-08-23 15:04:24：开始执行同步第三方数据
+2020-08-23 15:04:26.979 +08:00 [Information] 2020-08-23 15:04:26：开始执行同步第三方数据
+2020-08-23 15:04:28.978 +08:00 [Information] 2020-08-23 15:04:28：开始执行同步第三方数据
+2020-08-23 15:04:29.632 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:04:31.037 +08:00 [Information] 2020-08-23 15:04:31：开始执行同步第三方数据
+2020-08-23 15:04:31.684 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:04:32.982 +08:00 [Information] 2020-08-23 15:04:32：开始执行同步第三方数据
+2020-08-23 15:04:34.981 +08:00 [Information] 2020-08-23 15:04:34：开始执行同步第三方数据
+2020-08-23 15:04:37.007 +08:00 [Information] 2020-08-23 15:04:37：开始执行同步第三方数据
+2020-08-23 15:04:38.991 +08:00 [Information] 2020-08-23 15:04:38：开始执行同步第三方数据
+2020-08-23 15:04:40.977 +08:00 [Information] 2020-08-23 15:04:40：开始执行同步第三方数据
+2020-08-23 15:04:42.978 +08:00 [Information] 2020-08-23 15:04:42：开始执行同步第三方数据
+2020-08-23 15:04:44.982 +08:00 [Information] 2020-08-23 15:04:44：开始执行同步第三方数据
+2020-08-23 15:04:47.073 +08:00 [Information] 2020-08-23 15:04:47：开始执行同步第三方数据
+2020-08-23 15:04:49.054 +08:00 [Information] 2020-08-23 15:04:49：开始执行同步第三方数据
+2020-08-23 15:04:50.977 +08:00 [Information] 2020-08-23 15:04:50：开始执行同步第三方数据
+2020-08-23 15:04:53.154 +08:00 [Information] 2020-08-23 15:04:53：开始执行同步第三方数据
+2020-08-23 15:04:55.091 +08:00 [Information] 2020-08-23 15:04:55：开始执行同步第三方数据
+2020-08-23 15:04:57.001 +08:00 [Information] 2020-08-23 15:04:57：开始执行同步第三方数据
+2020-08-23 15:04:58.992 +08:00 [Information] 2020-08-23 15:04:58：开始执行同步第三方数据
+2020-08-23 15:04:59.670 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:05:00.978 +08:00 [Information] 2020-08-23 15:05:00：开始执行同步第三方数据
+2020-08-23 15:05:01.688 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:05:02.979 +08:00 [Information] 2020-08-23 15:05:02：开始执行同步第三方数据
+2020-08-23 15:05:05.008 +08:00 [Information] 2020-08-23 15:05:05：开始执行同步第三方数据
+2020-08-23 15:05:06.977 +08:00 [Information] 2020-08-23 15:05:06：开始执行同步第三方数据
+2020-08-23 15:05:08.977 +08:00 [Information] 2020-08-23 15:05:08：开始执行同步第三方数据
+2020-08-23 15:05:10.977 +08:00 [Information] 2020-08-23 15:05:10：开始执行同步第三方数据
+2020-08-23 15:05:12.978 +08:00 [Information] 2020-08-23 15:05:12：开始执行同步第三方数据
+2020-08-23 15:05:14.977 +08:00 [Information] 2020-08-23 15:05:14：开始执行同步第三方数据
+2020-08-23 15:05:16.978 +08:00 [Information] 2020-08-23 15:05:16：开始执行同步第三方数据
+2020-08-23 15:05:19.003 +08:00 [Information] 2020-08-23 15:05:19：开始执行同步第三方数据
+2020-08-23 15:05:20.987 +08:00 [Information] 2020-08-23 15:05:20：开始执行同步第三方数据
+2020-08-23 15:05:22.977 +08:00 [Information] 2020-08-23 15:05:22：开始执行同步第三方数据
+2020-08-23 15:05:25.021 +08:00 [Information] 2020-08-23 15:05:25：开始执行同步第三方数据
+2020-08-23 15:05:27.005 +08:00 [Information] 2020-08-23 15:05:27：开始执行同步第三方数据
+2020-08-23 15:05:28.977 +08:00 [Information] 2020-08-23 15:05:28：开始执行同步第三方数据
+2020-08-23 15:05:29.692 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:05:30.979 +08:00 [Information] 2020-08-23 15:05:30：开始执行同步第三方数据
+2020-08-23 15:05:31.701 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:05:32.978 +08:00 [Information] 2020-08-23 15:05:32：开始执行同步第三方数据
+2020-08-23 15:05:34.977 +08:00 [Information] 2020-08-23 15:05:34：开始执行同步第三方数据
+2020-08-23 15:05:36.977 +08:00 [Information] 2020-08-23 15:05:36：开始执行同步第三方数据
+2020-08-23 15:05:38.980 +08:00 [Information] 2020-08-23 15:05:38：开始执行同步第三方数据
+2020-08-23 15:05:40.982 +08:00 [Information] 2020-08-23 15:05:40：开始执行同步第三方数据
+2020-08-23 15:05:42.978 +08:00 [Information] 2020-08-23 15:05:42：开始执行同步第三方数据
+2020-08-23 15:05:44.980 +08:00 [Information] 2020-08-23 15:05:44：开始执行同步第三方数据
+2020-08-23 15:05:46.978 +08:00 [Information] 2020-08-23 15:05:46：开始执行同步第三方数据
+2020-08-23 15:05:48.990 +08:00 [Information] 2020-08-23 15:05:48：开始执行同步第三方数据
+2020-08-23 15:05:50.989 +08:00 [Information] 2020-08-23 15:05:50：开始执行同步第三方数据
+2020-08-23 15:05:52.978 +08:00 [Information] 2020-08-23 15:05:52：开始执行同步第三方数据
+2020-08-23 15:05:55.009 +08:00 [Information] 2020-08-23 15:05:55：开始执行同步第三方数据
+2020-08-23 15:05:56.986 +08:00 [Information] 2020-08-23 15:05:56：开始执行同步第三方数据
+2020-08-23 15:05:58.978 +08:00 [Information] 2020-08-23 15:05:58：开始执行同步第三方数据
+2020-08-23 15:05:59.696 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:06:01.038 +08:00 [Information] 2020-08-23 15:06:01：开始执行同步第三方数据
+2020-08-23 15:06:01.795 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:06:02.978 +08:00 [Information] 2020-08-23 15:06:02：开始执行同步第三方数据
+2020-08-23 15:06:04.978 +08:00 [Information] 2020-08-23 15:06:04：开始执行同步第三方数据
+2020-08-23 15:06:06.977 +08:00 [Information] 2020-08-23 15:06:06：开始执行同步第三方数据
+2020-08-23 15:06:08.979 +08:00 [Information] 2020-08-23 15:06:08：开始执行同步第三方数据
+2020-08-23 15:06:10.977 +08:00 [Information] 2020-08-23 15:06:10：开始执行同步第三方数据
+2020-08-23 15:06:12.977 +08:00 [Information] 2020-08-23 15:06:12：开始执行同步第三方数据
+2020-08-23 15:06:14.978 +08:00 [Information] 2020-08-23 15:06:14：开始执行同步第三方数据
+2020-08-23 15:06:16.978 +08:00 [Information] 2020-08-23 15:06:16：开始执行同步第三方数据
+2020-08-23 15:06:18.978 +08:00 [Information] 2020-08-23 15:06:18：开始执行同步第三方数据
+2020-08-23 15:06:20.978 +08:00 [Information] 2020-08-23 15:06:20：开始执行同步第三方数据
+2020-08-23 15:06:23.001 +08:00 [Information] 2020-08-23 15:06:23：开始执行同步第三方数据
+2020-08-23 15:06:24.979 +08:00 [Information] 2020-08-23 15:06:24：开始执行同步第三方数据
+2020-08-23 15:06:26.981 +08:00 [Information] 2020-08-23 15:06:26：开始执行同步第三方数据
+2020-08-23 15:06:28.978 +08:00 [Information] 2020-08-23 15:06:28：开始执行同步第三方数据
+2020-08-23 15:06:29.708 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:06:30.978 +08:00 [Information] 2020-08-23 15:06:30：开始执行同步第三方数据
+2020-08-23 15:06:31.723 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:06:32.978 +08:00 [Information] 2020-08-23 15:06:32：开始执行同步第三方数据
+2020-08-23 15:06:34.991 +08:00 [Information] 2020-08-23 15:06:34：开始执行同步第三方数据
+2020-08-23 15:06:36.979 +08:00 [Information] 2020-08-23 15:06:36：开始执行同步第三方数据
+2020-08-23 15:06:38.977 +08:00 [Information] 2020-08-23 15:06:38：开始执行同步第三方数据
+2020-08-23 15:06:40.978 +08:00 [Information] 2020-08-23 15:06:40：开始执行同步第三方数据
+2020-08-23 15:06:42.978 +08:00 [Information] 2020-08-23 15:06:42：开始执行同步第三方数据
+2020-08-23 15:06:44.986 +08:00 [Information] 2020-08-23 15:06:44：开始执行同步第三方数据
+2020-08-23 15:06:46.977 +08:00 [Information] 2020-08-23 15:06:46：开始执行同步第三方数据
+2020-08-23 15:06:48.977 +08:00 [Information] 2020-08-23 15:06:48：开始执行同步第三方数据
+2020-08-23 15:06:50.977 +08:00 [Information] 2020-08-23 15:06:50：开始执行同步第三方数据
+2020-08-23 15:06:52.978 +08:00 [Information] 2020-08-23 15:06:52：开始执行同步第三方数据
+2020-08-23 15:06:54.977 +08:00 [Information] 2020-08-23 15:06:54：开始执行同步第三方数据
+2020-08-23 15:06:56.977 +08:00 [Information] 2020-08-23 15:06:56：开始执行同步第三方数据
+2020-08-23 15:06:59.008 +08:00 [Information] 2020-08-23 15:06:59：开始执行同步第三方数据
+2020-08-23 15:06:59.720 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:07:01.071 +08:00 [Information] 2020-08-23 15:07:01：开始执行同步第三方数据
+2020-08-23 15:07:01.806 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:07:02.994 +08:00 [Information] 2020-08-23 15:07:02：开始执行同步第三方数据
+2020-08-23 15:07:04.978 +08:00 [Information] 2020-08-23 15:07:04：开始执行同步第三方数据
+2020-08-23 15:07:06.977 +08:00 [Information] 2020-08-23 15:07:06：开始执行同步第三方数据
+2020-08-23 15:07:08.978 +08:00 [Information] 2020-08-23 15:07:08：开始执行同步第三方数据
+2020-08-23 15:07:10.977 +08:00 [Information] 2020-08-23 15:07:10：开始执行同步第三方数据
+2020-08-23 15:07:13.002 +08:00 [Information] 2020-08-23 15:07:13：开始执行同步第三方数据
+2020-08-23 15:07:14.977 +08:00 [Information] 2020-08-23 15:07:14：开始执行同步第三方数据
+2020-08-23 15:07:17.002 +08:00 [Information] 2020-08-23 15:07:17：开始执行同步第三方数据
+2020-08-23 15:07:18.977 +08:00 [Information] 2020-08-23 15:07:18：开始执行同步第三方数据
+2020-08-23 15:07:20.978 +08:00 [Information] 2020-08-23 15:07:20：开始执行同步第三方数据
+2020-08-23 15:07:22.979 +08:00 [Information] 2020-08-23 15:07:22：开始执行同步第三方数据
+2020-08-23 15:07:24.977 +08:00 [Information] 2020-08-23 15:07:24：开始执行同步第三方数据
+2020-08-23 15:07:26.977 +08:00 [Information] 2020-08-23 15:07:26：开始执行同步第三方数据
+2020-08-23 15:07:29.022 +08:00 [Information] 2020-08-23 15:07:29：开始执行同步第三方数据
+2020-08-23 15:07:29.725 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:07:30.979 +08:00 [Information] 2020-08-23 15:07:30：开始执行同步第三方数据
+2020-08-23 15:07:31.737 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:07:32.978 +08:00 [Information] 2020-08-23 15:07:32：开始执行同步第三方数据
+2020-08-23 15:07:34.984 +08:00 [Information] 2020-08-23 15:07:34：开始执行同步第三方数据
+2020-08-23 15:07:36.978 +08:00 [Information] 2020-08-23 15:07:36：开始执行同步第三方数据
+2020-08-23 15:07:38.977 +08:00 [Information] 2020-08-23 15:07:38：开始执行同步第三方数据
+2020-08-23 15:07:40.983 +08:00 [Information] 2020-08-23 15:07:40：开始执行同步第三方数据
+2020-08-23 15:07:42.979 +08:00 [Information] 2020-08-23 15:07:42：开始执行同步第三方数据
+2020-08-23 15:07:44.977 +08:00 [Information] 2020-08-23 15:07:44：开始执行同步第三方数据
+2020-08-23 15:07:46.978 +08:00 [Information] 2020-08-23 15:07:46：开始执行同步第三方数据
+2020-08-23 15:07:48.978 +08:00 [Information] 2020-08-23 15:07:48：开始执行同步第三方数据
+2020-08-23 15:07:50.998 +08:00 [Information] 2020-08-23 15:07:50：开始执行同步第三方数据
+2020-08-23 15:07:52.980 +08:00 [Information] 2020-08-23 15:07:52：开始执行同步第三方数据
+2020-08-23 15:07:54.978 +08:00 [Information] 2020-08-23 15:07:54：开始执行同步第三方数据
+2020-08-23 15:07:56.991 +08:00 [Information] 2020-08-23 15:07:56：开始执行同步第三方数据
+2020-08-23 15:07:58.977 +08:00 [Information] 2020-08-23 15:07:58：开始执行同步第三方数据
+2020-08-23 15:07:59.731 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:08:00.977 +08:00 [Information] 2020-08-23 15:08:00：开始执行同步第三方数据
+2020-08-23 15:08:01.764 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:08:02.978 +08:00 [Information] 2020-08-23 15:08:02：开始执行同步第三方数据
+2020-08-23 15:08:04.978 +08:00 [Information] 2020-08-23 15:08:04：开始执行同步第三方数据
+2020-08-23 15:08:06.977 +08:00 [Information] 2020-08-23 15:08:06：开始执行同步第三方数据
+2020-08-23 15:08:08.978 +08:00 [Information] 2020-08-23 15:08:08：开始执行同步第三方数据
+2020-08-23 15:10:21.464 +08:00 [Debug] Hosting starting
+2020-08-23 15:10:21.558 +08:00 [Information] User profile is available. Using '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-08-23 15:10:22.245 +08:00 [Debug] Reading data from file '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys\key-724f19ba-e77b-48b4-9d0b-0e7213d8f762.xml"'.
+2020-08-23 15:10:22.248 +08:00 [Debug] Reading data from file '"C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys\key-b0431170-e012-409b-929e-889118ab96a4.xml"'.
+2020-08-23 15:10:22.255 +08:00 [Debug] Found key {724f19ba-e77b-48b4-9d0b-0e7213d8f762}.
+2020-08-23 15:10:22.259 +08:00 [Debug] Found key {b0431170-e012-409b-929e-889118ab96a4}.
+2020-08-23 15:10:22.268 +08:00 [Debug] Considering key {b0431170-e012-409b-929e-889118ab96a4} with expiration date 2020-09-05 15:21:06Z as default key.
+2020-08-23 15:10:22.279 +08:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-08-23 15:10:22.282 +08:00 [Debug] Decrypting secret element using Windows DPAPI.
+2020-08-23 15:10:22.285 +08:00 [Debug] Forwarded activator type request from "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" to "Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60"
+2020-08-23 15:10:22.290 +08:00 [Debug] Opening CNG algorithm '"AES"' from provider 'null' with chaining mode CBC.
+2020-08-23 15:10:22.293 +08:00 [Debug] Opening CNG algorithm '"SHA256"' from provider 'null' with HMAC.
+2020-08-23 15:10:22.297 +08:00 [Debug] Using key {b0431170-e012-409b-929e-889118ab96a4} as the default key.
+2020-08-23 15:10:22.297 +08:00 [Debug] Key ring with default key {b0431170-e012-409b-929e-889118ab96a4} was loaded during application startup.
+2020-08-23 15:10:22.418 +08:00 [Information] Service starting
+2020-08-23 15:10:22.420 +08:00 [Information] Starting the processing server.
+2020-08-23 15:10:22.539 +08:00 [Information] ### CAP started!
+2020-08-23 15:10:24.571 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:10:27.901 +08:00 [Debug] Loaded hosting startup assembly "Web"
+2020-08-23 15:10:27.949 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:52768/weatherforecast  
+2020-08-23 15:10:27.952 +08:00 [Debug] Wildcard detected, all requests with hosts will be allowed.
+2020-08-23 15:10:27.953 +08:00 [Verbose] All hosts are allowed.
+2020-08-23 15:10:27.981 +08:00 [Debug] The request path "" does not match the path filter
+2020-08-23 15:10:27.985 +08:00 [Information] Default Quartz.NET properties loaded from embedded resource file
+2020-08-23 15:10:28.045 +08:00 [Debug] AuthenticationScheme: "Bearer" was not authenticated.
+2020-08-23 15:10:28.054 +08:00 [Information] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-08-23 15:10:28.056 +08:00 [Information] Quartz Scheduler v."3.0.7.0" created.
+2020-08-23 15:10:28.057 +08:00 [Information] RAMJobStore initialized.
+2020-08-23 15:10:28.059 +08:00 [Verbose] Performing unprotect operation to key {b0431170-e012-409b-929e-889118ab96a4} with purposes "('C:\Users\Administrator\Source\Repos\lovetangtang\TangNetCore\src\Web', 'SessionMiddleware')".
+2020-08-23 15:10:28.061 +08:00 [Debug] The request path "/weatherforecast" does not match a supported file type
+2020-08-23 15:10:28.061 +08:00 [Information] Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-08-23 15:10:28.062 +08:00 [Information] Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-08-23 15:10:28.063 +08:00 [Information] Quartz scheduler version: 3.0.7.0
+2020-08-23 15:10:28.064 +08:00 [Information] JobFactory set to: Quartzs.IOCJobFactory
+2020-08-23 15:10:28.071 +08:00 [Information] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-08-23 15:10:28.085 +08:00 [Information] Application started. Press Ctrl+C to shut down.
+2020-08-23 15:10:28.087 +08:00 [Information] Hosting environment: "Development"
+2020-08-23 15:10:28.087 +08:00 [Information] Content root path: "C:\Users\Administrator\Source\Repos\lovetangtang\TangNetCore\src\Web"
+2020-08-23 15:10:28.087 +08:00 [Debug] Hosting started
+2020-08-23 15:10:28.099 +08:00 [Debug] 1 candidate(s) found for the request path '"/weatherforecast"'
+2020-08-23 15:10:28.103 +08:00 [Debug] Endpoint '"Web.Controllers.WeatherForecastController.Get (Web)"' with route pattern '"WeatherForecast"' is valid for the request path '"/weatherforecast"'
+2020-08-23 15:10:28.104 +08:00 [Debug] Request matched endpoint '"Web.Controllers.WeatherForecastController.Get (Web)"'
+2020-08-23 15:10:28.113 +08:00 [Information] Authorization failed.
+2020-08-23 15:10:28.118 +08:00 [Information] AuthenticationScheme: "Bearer" was challenged.
+2020-08-23 15:10:28.144 +08:00 [Information] HTTP "GET" "/weatherforecast" responded 401 in 184.5694 ms
+2020-08-23 15:10:28.145 +08:00 [Information] 2020-08-23 15:10:28：开始执行同步第三方数据
+2020-08-23 15:10:28.163 +08:00 [Information] Request finished in 216.5197ms 401 
+2020-08-23 15:10:30.075 +08:00 [Information] 2020-08-23 15:10:30：开始执行同步第三方数据
+2020-08-23 15:10:32.074 +08:00 [Information] 2020-08-23 15:10:32：开始执行同步第三方数据
+2020-08-23 15:10:34.074 +08:00 [Information] 2020-08-23 15:10:34：开始执行同步第三方数据
+2020-08-23 15:10:36.074 +08:00 [Information] 2020-08-23 15:10:36：开始执行同步第三方数据
+2020-08-23 15:10:38.075 +08:00 [Information] 2020-08-23 15:10:38：开始执行同步第三方数据
+2020-08-23 15:10:40.074 +08:00 [Information] 2020-08-23 15:10:40：开始执行同步第三方数据
+2020-08-23 15:10:42.075 +08:00 [Information] 2020-08-23 15:10:42：开始执行同步第三方数据
+2020-08-23 15:10:44.087 +08:00 [Information] 2020-08-23 15:10:44：开始执行同步第三方数据
+2020-08-23 15:10:46.123 +08:00 [Information] 2020-08-23 15:10:46：开始执行同步第三方数据
+2020-08-23 15:10:48.118 +08:00 [Information] 2020-08-23 15:10:48：开始执行同步第三方数据
+2020-08-23 15:10:50.075 +08:00 [Information] 2020-08-23 15:10:50：开始执行同步第三方数据
+2020-08-23 15:10:52.074 +08:00 [Information] 2020-08-23 15:10:52：开始执行同步第三方数据
+2020-08-23 15:10:52.446 +08:00 [Warning] Transport connection is unhealthy, reconnection...
+2020-08-23 15:10:54.074 +08:00 [Information] 2020-08-23 15:10:54：开始执行同步第三方数据
+2020-08-23 15:10:54.460 +08:00 [Error] Broker Unreachable
+DotNetCore.CAP.BrokerConnectionException: Broker Unreachable
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): 由于目标计算机积极拒绝，无法连接。 127.0.0.1:5672
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__275_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at RabbitMQ.Client.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, Int32 millisecondsTimeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, Int32 timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, Int32 connectionTimeout, Int32 readTimeout, Int32 writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.<>c__DisplayClass19_0.<CreateConnection>b__1()
+   at DotNetCore.CAP.RabbitMQ.ConnectionChannelPool.GetConnection()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClient.Connect()
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   --- End of inner exception stack trace ---
+   at DotNetCore.CAP.RabbitMQ.RabbitMQConsumerClientFactory.Create(String groupId)
+   at DotNetCore.CAP.Internal.ConsumerRegister.<>c__DisplayClass17_0.<Start>b__0()
+2020-08-23 15:10:56.074 +08:00 [Information] 2020-08-23 15:10:56：开始执行同步第三方数据
+2020-08-23 15:10:58.075 +08:00 [Information] 2020-08-23 15:10:58：开始执行同步第三方数据
+2020-08-23 15:11:00.073 +08:00 [Information] 2020-08-23 15:11:00：开始执行同步第三方数据
+2020-08-23 15:11:02.074 +08:00 [Information] 2020-08-23 15:11:02：开始执行同步第三方数据
+2020-08-23 15:11:04.074 +08:00 [Information] 2020-08-23 15:11:04：开始执行同步第三方数据
+2020-08-23 15:11:06.074 +08:00 [Information] 2020-08-23 15:11:06：开始执行同步第三方数据
+2020-08-23 15:11:08.073 +08:00 [Information] 2020-08-23 15:11:08：开始执行同步第三方数据
+2020-08-23 15:11:10.075 +08:00 [Information] 2020-08-23 15:11:10：开始执行同步第三方数据

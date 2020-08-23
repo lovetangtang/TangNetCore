@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac.Extensions.DependencyInjection;
+using log4net.Config;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +24,13 @@ namespace Web
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
+            Host.CreateDefaultBuilder(args)
+            //.ConfigureLogging(p =>
+            //{
+            //    var path = System.IO.Directory.GetCurrentDirectory();
+            //    p.AddLog4Net($"{path}/config/log4net.config");//配置文件
+            //})
+            .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseUrls("http://*:5101");
@@ -32,6 +39,7 @@ namespace Web
                     var sinkOpts = new SinkOptions();
                     sinkOpts.TableName = "Logs";
                     sinkOpts.AutoCreateSqlTable = true;
+
                     //var columnOpts = new ColumnOptions();
                     //columnOpts.Store.Remove(StandardColumn.Properties);
                     //columnOpts.Store.Add(StandardColumn.LogEvent);
@@ -44,13 +52,13 @@ namespace Web
                         .Enrich.FromLogContext()
                         // 配置日志输出到控制台
                         .WriteTo.Console()
-                        // 配置日志输出到文件，文件输出到当前项目的 logs 目录下
-                        // 日记的生成周期为每天
-                        .WriteTo.File(Path.Combine("logs", @"log.txt"), rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}")
+                       // 配置日志输出到文件，文件输出到当前项目的 logs 目录下
+                       // 日记的生成周期为每天
+                       .WriteTo.File(Path.Combine("logs", @"log.txt"), rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}")
+                        //.WriteTo.Log4Net()
                         .WriteTo.MSSqlServer(
-        connectionString: "Data Source=.\\SQL2019; Database=Test; User ID=sa; Password=123456; MultipleActiveResultSets=True",
-        sinkOptions: sinkOpts);
-
+                        connectionString: "Data Source=.\\SQL2019; Database=Test; User ID=sa; Password=123456; MultipleActiveResultSets=True",
+                        sinkOptions: sinkOpts);
                 }).UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }
